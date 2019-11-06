@@ -1,0 +1,3 @@
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS virtual_accounts;
+DROP TABLE IF EXISTS transactions;
