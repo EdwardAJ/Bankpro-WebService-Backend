@@ -3,7 +3,7 @@
   xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime"
   version="2.0">
   <endpoint
-      name="user"
-      implementation="com.webservice.controllers.UserController"
-      url-pattern="/user"/>
+      name="login"
+      implementation="com.webservice.controllers.LoginController"
+      url-pattern="/login"/>
 </endpoints>

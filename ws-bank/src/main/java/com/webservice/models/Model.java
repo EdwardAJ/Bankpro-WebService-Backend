@@ -1,17 +1,17 @@
 package com.webservice.models;
 import java.sql.*;
+import java.util.ArrayList;
 
 import com.webservice.database.*;
 
 abstract class Model {
-	protected static Database getMySQLConnection() {
+	public static Database getMySQLConnection() {
 		return new Database();
 	}
 	
-	public static ResultSet getBy(String column, String value, String className) {
-		Database connection = getMySQLConnection();
-		String query = "SELECT * FROM " + className + " WHERE " + column + " = " + value;
-		ResultSet results = connection.executeQuery(query);
+	public static ArrayList getBy(Database connection, String column, String value, String className) throws Exception {
+		String query = "SELECT * FROM " + className + " WHERE " + column + " = " + "'" + value + "'" +  ";";
+		ArrayList results = connection.executeGetQuery(query);
 		return results;
 	}
 }

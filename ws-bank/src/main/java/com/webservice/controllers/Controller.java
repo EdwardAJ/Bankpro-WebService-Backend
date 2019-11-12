@@ -4,3 +4,5 @@ public class Controller {
 	public int responseCode;
 	public String data;
 }
+
+

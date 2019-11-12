@@ -1,7 +1,7 @@
+com/webservice/controllers/LoginController.class
 com/webservice/database/Database.class
 com/webservice/models/User.class
 com/webservice/controllers/Controller.class
-com/webservice/controllers/UserController.class
 com/webservice/routes/Routes.class
 com/webservice/interfaces/UserService.class
 com/webservice/models/Model.class
