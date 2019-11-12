@@ -1,5 +1,6 @@
 package com.webservice.models;
 import java.sql.*;
+import java.util.HashMap;
 import java.util.ArrayList;
 
 import com.webservice.database.*;
@@ -9,9 +10,9 @@ abstract class Model {
 		return new Database();
 	}
 	
-	public static ArrayList getBy(Database connection, String column, String value, String className) throws Exception {
+	public static ArrayList<HashMap<String, Object>> getBy(Database connection, String column, String value, String className) throws Exception {
 		String query = "SELECT * FROM " + className + " WHERE " + column + " = " + "'" + value + "'" +  ";";
-		ArrayList results = connection.executeGetQuery(query);
+		ArrayList<HashMap<String, Object>> results = connection.executeGetQuery(query);
 		return results;
 	}
 }

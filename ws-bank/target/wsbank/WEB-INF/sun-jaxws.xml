@@ -6,4 +6,8 @@
       name="login"
       implementation="com.webservice.controllers.LoginController"
       url-pattern="/login"/>
+  <endpoint
+      name="info"
+      implementation="com.webservice.controllers.UserInfoController"
+      url-pattern="/info"/>
 </endpoints>

@@ -34,8 +34,8 @@ public class Database {
 		}
 	}
 
-	public ArrayList executeGetQuery(String query) throws Exception {
-		ArrayList results = null;
+	public ArrayList<HashMap<String, Object>> executeGetQuery(String query) throws Exception {
+		ArrayList<HashMap<String,Object>> results = null;
 		ResultSet tempResults = null;
 		// Initialize
 		statement = connection.createStatement();
@@ -49,18 +49,20 @@ public class Database {
 	}
 	
 	// Convert resultSet to List. The purpose is to close resultSet and statement
-	public ArrayList convertResultSet(ResultSet rs) throws SQLException {
+	public ArrayList<HashMap<String, Object>> convertResultSet(ResultSet rs) throws SQLException {
 		ResultSetMetaData md = rs.getMetaData();
 		int columns = md.getColumnCount();
 		// Setting the initial size of ArrayList reduces the number of re-allocation
-		ArrayList<Object> results = new ArrayList<Object>(100);
-		HashMap<String, Object> row = new HashMap<String, Object>(columns);
+		ArrayList<HashMap<String, Object>> results = new ArrayList<HashMap<String, Object>>(100);
 		while (rs.next()) {
-			for (int col = 1; col <= columns; ++col ) {
+			HashMap<String, Object> row = new HashMap<String, Object>(columns);
+			for (int col = 1; col <= columns; ++col) {
 				row.put(md.getColumnName(col), rs.getObject(col));
+				// System.out.println("SALDO = " + md.getColumnName(col) + " " + rs.getObject(col));
 			}
 			results.add(row);
 		}
+		// System.out.println("Results: " + results);
 		return results;
 	}
 
