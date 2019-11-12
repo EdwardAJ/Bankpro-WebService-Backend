@@ -10,4 +10,8 @@
       name="info"
       implementation="com.webservice.controllers.UserInfoController"
       url-pattern="/info"/>
+  <endpoint
+      name="generate"
+      implementation="com.webservice.controllers.VirtualAccountController"
+      url-pattern="/generate"/>
 </endpoints>

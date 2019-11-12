@@ -47,6 +47,14 @@ public class Database {
 		closeStatement();
 		return results;
 	}
+
+	public int executeUpdateQuery(String query) throws Exception {
+		// Initialize
+		statement = connection.createStatement();
+		int tempResults = statement.executeUpdate(query);
+		closeStatement();
+		return tempResults;
+	}
 	
 	// Convert resultSet to List. The purpose is to close resultSet and statement
 	public ArrayList<HashMap<String, Object>> convertResultSet(ResultSet rs) throws SQLException {
@@ -58,11 +66,9 @@ public class Database {
 			HashMap<String, Object> row = new HashMap<String, Object>(columns);
 			for (int col = 1; col <= columns; ++col) {
 				row.put(md.getColumnName(col), rs.getObject(col));
-				// System.out.println("SALDO = " + md.getColumnName(col) + " " + rs.getObject(col));
 			}
 			results.add(row);
 		}
-		// System.out.println("Results: " + results);
 		return results;
 	}
 

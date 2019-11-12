@@ -1,11 +1,14 @@
-/var/www/Tubes2WBD/ws-bank/ws-bank/src/main/java/com/webservice/interfaces/LoginService.java
-/var/www/Tubes2WBD/ws-bank/ws-bank/src/main/java/com/webservice/models/User.java
 /var/www/Tubes2WBD/ws-bank/ws-bank/src/main/java/com/webservice/controllers/LoginController.java
 /var/www/Tubes2WBD/ws-bank/ws-bank/src/main/java/com/webservice/controllers/Controller.java
+/var/www/Tubes2WBD/ws-bank/ws-bank/src/main/java/com/webservice/controllers/VirtualAccountController.java
 /var/www/Tubes2WBD/ws-bank/ws-bank/src/main/java/com/webservice/utils/Utils.java
-/var/www/Tubes2WBD/ws-bank/ws-bank/src/main/java/com/webservice/interfaces/UserInfoService.java
 /var/www/Tubes2WBD/ws-bank/ws-bank/src/main/java/com/webservice/database/Database.java
 /var/www/Tubes2WBD/ws-bank/ws-bank/src/main/java/com/webservice/models/Model.java
 /var/www/Tubes2WBD/ws-bank/ws-bank/src/main/java/com/webservice/controllers/UserInfoController.java
 /var/www/Tubes2WBD/ws-bank/ws-bank/src/main/java/com/webservice/models/Transaction.java
+/var/www/Tubes2WBD/ws-bank/ws-bank/src/main/java/com/webservice/interfaces/LoginService.java
+/var/www/Tubes2WBD/ws-bank/ws-bank/src/main/java/com/webservice/interfaces/VirtualAccountService.java
+/var/www/Tubes2WBD/ws-bank/ws-bank/src/main/java/com/webservice/models/User.java
+/var/www/Tubes2WBD/ws-bank/ws-bank/src/main/java/com/webservice/interfaces/UserInfoService.java
+/var/www/Tubes2WBD/ws-bank/ws-bank/src/main/java/com/webservice/models/VirtualAccount.java
 /var/www/Tubes2WBD/ws-bank/ws-bank/src/main/java/com/webservice/routes/Routes.java

@@ -15,4 +15,10 @@ abstract class Model {
 		ArrayList<HashMap<String, Object>> results = connection.executeGetQuery(query);
 		return results;
 	}
+
+	public static int insertIntoVirtualAccounts(Database connection, String virtualAccountNumber, String accountNumber) throws Exception {
+		String query = "INSERT INTO `virtual_accounts` (`virtual_account_number`, `account_number`, `created_at`) VALUES ( \'" + virtualAccountNumber + "\' , \'" + accountNumber + "\' , now())";
+		int result = connection.executeUpdateQuery(query);
+		return result;
+	}
 }
