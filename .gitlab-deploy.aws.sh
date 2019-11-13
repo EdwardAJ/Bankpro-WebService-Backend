@@ -9,5 +9,5 @@ array=(${string//,/ })
 # Careful with the ; https://stackoverflow.com/a/20666248/1057052
 for i in “${!array[@]}”; do
   echo “Deploy project on server ${array[i]}”
-  ssh ubuntu@${array[i]} “cd ws-bank && git stash && git pull origin feature-virtualaccount && sudo docker build -t wsbank . && sudo docker run --rm -p 8080:8080 wsbank”
+  ssh ubuntu@${array[i]} “cd ~/ws-bank && git stash && git pull origin feature-virtualaccount && sudo docker rm $(sudo docker stop $(sudo docker ps -a -q --filter ancestor=wsbank --format="{{.ID}}")) && sudo docker build -t wsbank . && sudo docker run -d --rm -p 8080:8080 wsbank”
 done
