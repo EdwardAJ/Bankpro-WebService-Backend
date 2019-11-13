@@ -41,7 +41,7 @@ public class VirtualAccountController extends Controller implements VirtualAccou
     }
 
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         // int suffix = 1;
         // String accountNumber = "13517000";
         // String virtualAccountNumber = null;
