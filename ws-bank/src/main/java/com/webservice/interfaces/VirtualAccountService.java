@@ -10,5 +10,5 @@ import javax.jws.soap.SOAPBinding.Style;
 @SOAPBinding(style = Style.RPC)
 public interface VirtualAccountService {
 	@WebMethod
-	public String generateVirtualAccount(@WebParam(name = "accountNumber") String accountNumber);
+	String generateVirtualAccount(@WebParam(name = "accountNumber") String accountNumber);
 }

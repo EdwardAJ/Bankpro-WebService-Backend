@@ -16,6 +16,6 @@ import javax.xml.bind.annotation.*;
 public interface UserInfoService {
     @WebMethod
     @XmlElementWrapper
-    @XmlElement(name="return")
-	public ArrayList<String> fetchUserInfo(@WebParam(name = "accountNumber") String accountNumber);
+    @XmlElement(name = "return")
+	ArrayList<String> fetchUserInfo(@WebParam(name = "accountNumber") String accountNumber);
 }

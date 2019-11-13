@@ -3,7 +3,6 @@ com/webservice/database/Database.class
 com/webservice/models/User.class
 com/webservice/utils/Utils.class
 com/webservice/controllers/Controller.class
-com/webservice/routes/Routes.class
 com/webservice/interfaces/LoginService.class
 com/webservice/models/Model.class
 com/webservice/models/Transaction.class

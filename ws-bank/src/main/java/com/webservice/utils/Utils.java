@@ -9,7 +9,11 @@ import java.sql.*;
 
 import com.webservice.database.*;
 
-public class Utils {
+public final class Utils {
+
+    private Utils() {
+        
+    }
 
     public static long fetchUserAmount(String accountNumber) {
         // Initial amount

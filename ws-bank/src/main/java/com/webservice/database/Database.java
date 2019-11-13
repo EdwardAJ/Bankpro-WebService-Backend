@@ -1,7 +1,6 @@
 package com.webservice.database;
 
 import java.sql.*;
-import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -35,7 +34,7 @@ public class Database {
 	}
 
 	public ArrayList<HashMap<String, Object>> executeGetQuery(String query) throws Exception {
-		ArrayList<HashMap<String,Object>> results = null;
+		ArrayList<HashMap<String, Object>> results = null;
 		ResultSet tempResults = null;
 		// Initialize
 		statement = connection.createStatement();

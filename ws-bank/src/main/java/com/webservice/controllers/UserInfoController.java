@@ -1,12 +1,10 @@
 package com.webservice.controllers;
 
 import com.webservice.models.User;
-import com.webservice.models.Transaction;
 import com.webservice.interfaces.UserInfoService;
 import javax.jws.WebService;
 import javax.jws.WebParam;
 
-import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -21,8 +19,8 @@ import javax.xml.bind.annotation.*;
 @WebService
 public class UserInfoController extends Controller implements UserInfoService {
     @Override
-    @XmlElementWrapper
-    @XmlElement(name="return")
+    @XmlElementWrapper 
+    @XmlElement(name = "return")
     public ArrayList<String> fetchUserInfo(@WebParam(name = "accountNumber") String accountNumber) {
         // Returns list of user's information
         ArrayList<String> info = new ArrayList<String>();

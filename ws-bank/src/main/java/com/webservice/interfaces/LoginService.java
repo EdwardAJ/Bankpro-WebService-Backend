@@ -9,6 +9,6 @@ import javax.jws.soap.SOAPBinding.Style;
 @WebService
 @SOAPBinding(style = Style.RPC)
 public interface LoginService {
-	@WebMethod
-	public boolean validateAccountNumber(@WebParam(name = "accountNumber") String accountNumber);
+    @WebMethod
+    boolean validateAccountNumber(@WebParam(name = "accountNumber") String accountNumber);
 }

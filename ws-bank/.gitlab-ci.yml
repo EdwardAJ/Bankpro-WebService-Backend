@@ -1,0 +1,25 @@
+images: docker:latest
+
+stages:
+  - build
+  - deploy
+
+javalint:
+  stage: build
+  tags:
+    - tagwsbank
+  script:
+    - 'mvn $MAVEN_CLI_OPTS package'
+
+build_image:
+  stage: deploy
+  tags:
+    - tagwsbank
+  before_script:
+    - docker info
+  script:
+    - sudo docker build -t wsbank .
+    - sudo docker run --rm -p 8080:8080 wsbank
+  only:
+    - dev
+    - master

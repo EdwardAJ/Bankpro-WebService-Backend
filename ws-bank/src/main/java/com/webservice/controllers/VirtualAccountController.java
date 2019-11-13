@@ -5,7 +5,6 @@ import com.webservice.interfaces.VirtualAccountService;
 import javax.jws.WebService;
 import javax.jws.WebParam;
 
-import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap;
 
