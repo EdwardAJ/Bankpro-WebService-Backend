@@ -9,15 +9,20 @@ javalint:
   script:
     - 'mvn $MAVEN_CLI_OPTS package'
 
-build_image:
+deploy_to_aws:
   stage: deploy
   tags:
     - tagwsbank
   before_script:
-    - docker info
+   # Generates to connect to the AWS unit the SSH key.
+   - mkdir -p ~/.ssh
+   - echo -e “$SSH_PRIVATE_KEY” > ~/.ssh/id_rsa
+   # Sets the permission to 600 to prevent a problem with AWS
+   # that it’s too unprotected.
+   - chmod 600 ~/.ssh/id_rsa
+   - ‘[[ -f /.dockerenv ]] && echo -e “Host *\n\tStrictHostKeyChecking no\n\n” > ~/.ssh/config’
   script:
-    - sudo docker build -t wsbank .
-    - sudo docker run --rm -p 8080:8080 wsbank
-  only:
-    - dev
-    - master
+    - bash .gitlab-deploy.aws.sh
+  environment:
+    name: production
+    url: ec2-54-89-199-114.compute-1.amazonaws.com
