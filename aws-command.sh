@@ -7,3 +7,4 @@ echo 'Building images...'
 sudo docker build -t wsbank .
 echo 'Run the container...'
 sudo docker run -d --rm --name wsbankcontainer -p 8081:8081 wsbank
+echo 'Process done.'
