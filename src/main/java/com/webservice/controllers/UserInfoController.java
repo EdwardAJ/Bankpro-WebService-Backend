@@ -24,9 +24,8 @@ public class UserInfoController extends Controller implements UserInfoService {
     public ArrayList<String> fetchUserInfo(@WebParam(name = "accountNumber") String accountNumber) {
         // Returns list of user's information
         ArrayList<String> info = new ArrayList<String>();
-        Database connection = User.getMySQLConnection();
         try {
-			ArrayList<HashMap<String, Object>> results = User.getBy(connection, "account_number", accountNumber, "users");
+			ArrayList<HashMap<String, Object>> results = User.getBy("account_number", accountNumber, "users");
             for (int row = 0; row < results.size(); row++) {
                 info.add(results.get(row).get("name").toString());
                 info.add(results.get(row).get("account_number").toString());
@@ -37,7 +36,6 @@ public class UserInfoController extends Controller implements UserInfoService {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-        connection.closeConnection();
         return info;
     }
 

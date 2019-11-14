@@ -16,10 +16,9 @@ import com.webservice.database.*;
 public class LoginController extends Controller implements LoginService {
 	@Override
 	public boolean validateAccountNumber(@WebParam(name = "accountNumber") String accountNumber) {
-		Database connection = User.getMySQLConnection();
 		boolean isValidated = false;
 		try {
-			ArrayList<HashMap<String, Object>> results = User.getBy(connection, "account_number", accountNumber, "users");
+			ArrayList<HashMap<String, Object>> results = User.getBy("account_number", accountNumber, "users");
 			// If account number exists in database
 			if (results.size() > 0) {
 				isValidated = true;
@@ -28,7 +27,6 @@ public class LoginController extends Controller implements LoginService {
 			System.out.println(e);
 		}
 		// Do not forget to close the connection
-		connection.closeConnection();
 		return isValidated;
 	}
 

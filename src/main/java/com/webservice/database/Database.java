@@ -7,9 +7,10 @@ import java.util.HashMap;
 public class Database {
 	// Constants
 	static final String DB_DRIVER = "com.mysql.jdbc.Driver";
-	static final String DB_URL = "jdbc:mysql://localhost:3306/bank";
-	static final String DB_USERNAME = "root";
-	static final String DB_PASSWORD = "root";
+	static final String DB_URL = "jdbc:mysql://" + System.getenv("MYSQL_CONTAINER_NAME") + ":3306" + "/" + System.getenv("MYSQL_DATABASE");
+	// static final String DB_URL = "jdbc:mysql://wsbank-database:3306/wsbank_database";
+	static final String DB_USERNAME = System.getenv("MYSQL_USER");
+	static final String DB_PASSWORD = System.getenv("MYSQL_PASS");
 	
 	// Connection
 	private Connection connection = null;

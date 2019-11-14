@@ -14,4 +14,8 @@
       name="generate"
       implementation="com.webservice.controllers.VirtualAccountController"
       url-pattern="/generate"/>
+  <endpoint
+      name="transfer"
+      implementation="com.webservice.controllers.TransferController"
+      url-pattern="/transfer"/>
 </endpoints>

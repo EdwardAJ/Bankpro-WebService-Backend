@@ -20,23 +20,25 @@ public class VirtualAccountController extends Controller implements VirtualAccou
     public String generateVirtualAccount(@WebParam(name = "accountNumber") String accountNumber) {
         int suffix = 1;
         String virtualAccountNumber = null;
-        Database connection = VirtualAccount.getMySQLConnection();
         try {
             // Get virtual_account of latest transaction
-			ArrayList<HashMap<String, Object>> fetchResults = VirtualAccount.getBy(connection, "account_number", accountNumber, "virtual_accounts");
+			ArrayList<HashMap<String, Object>> fetchResults = VirtualAccount.getBy("account_number", accountNumber, "virtual_accounts");
             for (int row = 0; row < fetchResults.size(); row++) {
                 suffix++;
             }
             // Now insert to transactions
-            int result = VirtualAccount.insertIntoVirtualAccounts(connection, accountNumber + String.valueOf(suffix), accountNumber);
+            // int result = VirtualAccount.insertIntoVirtualAccounts(accountNumber + String.valueOf(suffix), accountNumber);
+            VirtualAccount newVirtualAccount = new VirtualAccount();
+            newVirtualAccount.virtualAccountNumber = accountNumber + String.valueOf(suffix);
+            newVirtualAccount.accountNumber = accountNumber;
+            int result = VirtualAccount.insert(newVirtualAccount);
             // Only one row should be changed
             if (result == 1) {
-                virtualAccountNumber = accountNumber + String.valueOf(suffix);   
+                virtualAccountNumber = accountNumber + String.valueOf(suffix);
             }
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-        connection.closeConnection();
         return virtualAccountNumber;
     }
 
