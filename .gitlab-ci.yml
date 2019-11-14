@@ -22,3 +22,7 @@ deploy_to_aws:
   environment:
     name: production
     url: ec2-54-89-199-114.compute-1.amazonaws.com
+  only:
+    refs:
+      -dev
+      -master
