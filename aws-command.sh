@@ -1,6 +1,6 @@
 echo 'Fetch user...'
 whoami
-echp 'Curdir..'
+echo 'Curdir..'
 ls
 cd /home/ubuntu/ws-bank
 git stash
