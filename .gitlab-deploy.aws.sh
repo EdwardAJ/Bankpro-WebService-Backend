@@ -12,6 +12,6 @@ echo "ALL_SERVERS ${ALL_SERVERS}"
 for server in "${ALL_SERVERS[@]}"
 do
   echo "deploying to ${server}"
-  ssh -i "tubes2wbd.pem" ubuntu@ec2-54-89-199-114.compute-1.amazonaws.com “cd ~/ws-bank && git stash && git pull origin feature-virtualaccount && sudo docker rm $(sudo docker stop $(sudo docker ps -a -q --filter ancestor=wsbank --format="{{.ID}}")) && sudo docker build -t wsbank . && sudo docker run -d --rm -p 8080:8080 wsbank”
+  ssh ubuntu@${server} “cd ~/ws-bank && git stash && git pull origin feature-virtualaccount && sudo docker rm $(sudo docker stop $(sudo docker ps -a -q --filter ancestor=wsbank --format="{{.ID}}")) && sudo docker build -t wsbank . && sudo docker run -d --rm -p 8080:8080 wsbank”
 done
 
