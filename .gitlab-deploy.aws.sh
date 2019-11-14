@@ -12,6 +12,6 @@ echo "ALL_SERVERS ${ALL_SERVERS}"
 for server in "${ALL_SERVERS[@]}"
 do
   echo "deploying to ${server}"
-  echo 'runner' | sudo -S ssh -i ~/.ssh/tubes2wbd.pem ubuntu@${server} 'bash' < ./aws-command.sh
+  echo '19991312' | sudo -S ssh -i ~/.ssh/tubes2wbd.pem ubuntu@${server} 'bash' < ./aws-command.sh
 done
 
