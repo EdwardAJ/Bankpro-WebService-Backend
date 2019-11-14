@@ -1,3 +1,5 @@
+echo 'Fetch user...'
+whoami
 cd /home/ubuntu/ws-bank
 git stash
 git pull origin feature-virtualaccount
