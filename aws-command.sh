@@ -12,5 +12,5 @@ sudo docker stop wsbankcontainer && sleep 10
 echo 'Building images...'
 sudo docker build -t wsbank .
 echo 'Run the container...'
-sudo docker run -d --rm --name wsbankcontainer -p 8081:8081 wsbank
+sudo docker run -d --rm --name wsbankcontainer -p 8080:8080 wsbank
 echo 'Process done.'
