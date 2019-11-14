@@ -5,7 +5,7 @@ stages:
 javalint:
   stage: build
   tags:
-    - tagwsbank
+    - wsbank
   script:
     - 'mvn $MAVEN_CLI_OPTS package'
 
