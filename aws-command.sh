@@ -2,6 +2,8 @@ echo 'Fetch user...'
 whoami
 echo 'Curdir..'
 ls
+echo 'DIR?'
+ls /home/ubuntu/ws-bank
 cd /home/ubuntu/ws-bank
 git stash
 git pull origin feature-virtualaccount
