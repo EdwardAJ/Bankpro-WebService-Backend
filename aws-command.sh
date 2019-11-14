@@ -2,8 +2,7 @@ cd /home/ubuntu/ws-bank
 git stash
 git pull origin feature-virtualaccount
 echo 'Removing existing container...'
-echo "sudo docker rm $(sudo docker stop $(sudo docker ps -a -q --filter ancestor=wsbank --format="{{.ID}}"))"
-sudo docker rm $(sudo docker stop $(sudo docker ps -a -q --filter ancestor=wsbank --format="{{.ID}}"))
+sudo docker rm '$'(sudo docker stop '$'(sudo docker ps -a -q --filter ancestor=wsbank --format='"'{{.ID}}'"'))
 echo 'Building images...'
 sudo docker build -t wsbank .
 echo 'Run the container...'
