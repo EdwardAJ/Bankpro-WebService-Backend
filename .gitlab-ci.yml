@@ -12,7 +12,7 @@ javalint:
 deploy_to_aws:
   stage: deploy
   tags:
-    - tagwsbank
+    - wsbank
   before_script:
    # Generates to connect to the AWS unit the SSH key.
    - mkdir -p ~/.ssh
