@@ -1,5 +1,7 @@
 echo 'Fetch user...'
 whoami
+echp 'Curdir..'
+ls
 cd /home/ubuntu/ws-bank
 git stash
 git pull origin feature-virtualaccount
