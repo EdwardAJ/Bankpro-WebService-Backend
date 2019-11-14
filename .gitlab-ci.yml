@@ -1,0 +1,27 @@
+stages:
+  - build
+  - deploy
+
+javalint:
+  stage: build
+  tags:
+    - wsbank
+  script:
+    - 'mvn $MAVEN_CLI_OPTS package'
+
+deploy_to_aws:
+  only:
+    - dev
+    - master
+  stage: deploy
+  tags:
+    - wsbank
+  before_script:
+   # Generates to connect to the AWS unit the SSH key.
+   - mkdir -p ~/.ssh
+   - bash .ignore-host-check.sh
+  script:
+    - bash aws-command.sh
+  environment:
+    name: production
+    url: ec2-54-89-199-114.compute-1.amazonaws.com
