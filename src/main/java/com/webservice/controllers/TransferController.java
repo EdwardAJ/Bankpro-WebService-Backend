@@ -25,8 +25,8 @@ public class TransferController extends Controller implements TransferService {
         ArrayList<String> info = new ArrayList<String>();
         try {
             long balanceOfTheForce = Utils.fetchUserAmount(srcAccountNumber);
-            if (balanceOfTheForce <= amount) {
-                return "Saldo kurang goblok!";
+            if (balanceOfTheForce < amount) {
+                return "Saldo kurang!";
             }
 
             String virtualAccountNumber = null;
@@ -44,6 +44,10 @@ public class TransferController extends Controller implements TransferService {
 
                 virtualAccountNumber = destAccountNumber;
                 destAccountNumber = (String) results.get(0).get("account_number");
+            }
+
+            if (srcAccountNumber.equals(destAccountNumber)) {
+                return "Nomor rekening tidak boleh sama! Jangan coba-coba :(";
             }
 
             Transaction newTransaction = new Transaction();

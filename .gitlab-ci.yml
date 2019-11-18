@@ -5,30 +5,23 @@ stages:
 javalint:
   stage: build
   tags:
-    - tagwsbank
+    - wsbank
   script:
     - 'mvn $MAVEN_CLI_OPTS package'
 
 deploy_to_aws:
+  only:
+    - dev
+    - master
   stage: deploy
   tags:
-    - tagwsbank
+    - wsbank
   before_script:
    # Generates to connect to the AWS unit the SSH key.
    - mkdir -p ~/.ssh
-   - echo -e “$SSH_PRIVATE_KEY” > ~/.ssh/id_rsa_aws_wsbank
-   # Sets the permission to 600 to prevent a problem with AWS
-   # that it’s too unprotected.
-   - chmod 600 ~/.ssh/id_rsa_aws_wsbank
-   - ‘[[ -f /.dockerenv ]] && echo -e “Host *\n\tStrictHostKeyChecking no\n\n” > ~/.ssh/config’
+   - bash .ignore-host-check.sh
   script:
-    - sudo ssh -i "~/.ssh/id_rsa_aws_wsbank" ubuntu@ec2-54-89-199-114.compute-1.amazonaws.com
-    - cd ~/ws-bank
-    - git stash
-    - git pull origin feature-virtualaccount
-    - sudo docker rm $(sudo docker stop $(sudo docker ps -a -q --filter ancestor=wsbank --format="{{.ID}}"))
-    - sudo docker build -t wsbank .
-    - sudo docker run -d --rm -p 8080:8080 wsbank
+    - bash aws-command.sh
   environment:
     name: production
     url: ec2-54-89-199-114.compute-1.amazonaws.com
