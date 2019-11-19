@@ -10,6 +10,8 @@ com/webservice/controllers/UserInfoController.class
 com/webservice/controllers/TransferController.class
 com/webservice/interfaces/UserInfoService.class
 com/webservice/interfaces/TransferService.class
+com/webservice/interfaces/HistoryService.class
 com/webservice/models/VirtualAccount.class
 com/webservice/interfaces/VirtualAccountService.class
 com/webservice/controllers/VirtualAccountController.class
+com/webservice/controllers/HistoryController.class
