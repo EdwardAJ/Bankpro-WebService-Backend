@@ -53,6 +53,17 @@ Inc.//DTD Web Application 2.3//EN"
         <servlet-name>transfer</servlet-name>
         <url-pattern>/transfer</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>history</servlet-name>
+        <servlet-class>
+        	com.sun.xml.ws.transport.http.servlet.WSServlet
+        </servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>history</servlet-name>
+        <url-pattern>/history</url-pattern>
+    </servlet-mapping>
     <filter>
         <filter-name>CorsFilter</filter-name>
         <filter-class>org.apache.catalina.filters.CorsFilter</filter-class>

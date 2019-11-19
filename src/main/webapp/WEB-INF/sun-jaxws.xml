@@ -18,4 +18,8 @@
       name="transfer"
       implementation="com.webservice.controllers.TransferController"
       url-pattern="/transfer"/>
+   <endpoint
+      name="history"
+      implementation="com.webservice.controllers.HistoryController"
+      url-pattern="/history"/>
 </endpoints>
