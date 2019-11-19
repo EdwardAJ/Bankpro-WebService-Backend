@@ -22,4 +22,8 @@
       name="history"
       implementation="com.webservice.controllers.HistoryController"
       url-pattern="/history"/>
+    <endpoint
+      name="check"
+      implementation="com.webservice.controllers.CheckController"
+      url-pattern="/check"/>
 </endpoints>
