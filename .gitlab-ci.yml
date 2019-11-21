@@ -1,0 +1,20 @@
+stages:
+  - build
+  - deploy
+
+javalint:
+  stage: build
+  tags:
+    - tubes2wbd
+  script:
+    - 'mvn $MAVEN_CLI_OPTS package'
+
+deploy_to_aws:
+  stage: deploy
+  tags:
+    - tubes2wbd
+  script:
+    - bash aws-command.sh
+  environment:
+    name: production
+    url: ec2-54-89-199-114.compute-1.amazonaws.com
