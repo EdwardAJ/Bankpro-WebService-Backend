@@ -16,10 +16,10 @@ import com.webservice.database.*;
 @WebService
 public class CheckController extends Controller implements CheckService {
 	@Override
-	public boolean checkCreditTransaction(@WebParam(name = "accountNumber") String accountNumber, @WebParam(name = "startTime") String startTime, @WebParam(name = "endTime") String endTime) {
+	public boolean checkCreditTransaction(@WebParam(name = "accountNumber") String accountNumber, @WebParam(name = "startTime") String startTime, @WebParam(name = "endTime") String endTime, @WebParam(name = "amount") long amount) {
         boolean isValidated = false;
         try {
-			ArrayList<HashMap<String, Object>> results = Transaction.getCreditTransaction(accountNumber, startTime, endTime);
+			ArrayList<HashMap<String, Object>> results = Transaction.getCreditTransaction(accountNumber, startTime, endTime, amount);
 			// If account number exists in database
 			if (results.size() > 0) {
                 isValidated = true;

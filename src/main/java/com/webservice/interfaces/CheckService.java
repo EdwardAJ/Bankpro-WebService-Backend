@@ -15,5 +15,5 @@ public interface CheckService {
     @WebMethod
     @XmlElementWrapper
     @XmlElement(name = "return")
-    boolean checkCreditTransaction(@WebParam(name = "accountNumber") String accountNumber, @WebParam(name = "startTime") String startTime, @WebParam(name = "endTime") String endTime);
+    boolean checkCreditTransaction(@WebParam(name = "accountNumber") String accountNumber, @WebParam(name = "startTime") String startTime, @WebParam(name = "endTime") String endTime, @WebParam(name = "amount") long amount);
 }
