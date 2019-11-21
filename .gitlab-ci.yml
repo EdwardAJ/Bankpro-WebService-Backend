@@ -5,21 +5,14 @@ stages:
 javalint:
   stage: build
   tags:
-    - wsbank
+    - tubes2wbd
   script:
     - 'mvn $MAVEN_CLI_OPTS package'
 
 deploy_to_aws:
-  only:
-    - dev
-    - master
   stage: deploy
   tags:
-    - wsbank
-  before_script:
-   # Generates to connect to the AWS unit the SSH key.
-   - mkdir -p ~/.ssh
-   - bash .ignore-host-check.sh
+    - tubes2wbd
   script:
     - bash aws-command.sh
   environment:

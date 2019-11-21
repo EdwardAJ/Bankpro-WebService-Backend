@@ -6,11 +6,13 @@ echo 'DIR?'
 ls /home/ubuntu/ws-bank
 cd /home/ubuntu/ws-bank
 git stash
-git pull origin feature-virtualaccount
-echo 'Removing existing container...'
-sudo docker stop wsbankcontainer && sleep 10
-echo 'Building images...'
-sudo docker build -t wsbank .
-echo 'Run the container...'
-sudo docker run -d --rm --name wsbankcontainer -p 8080:8080 wsbank
-echo 'Process done.'
+git checkout master
+git pull origin master
+echo 'Deleting screen...'
+screen -X -S engima quit
+echo 'Creating .env'
+cp ENV.SAMPLE .env
+echo 'Create executable...'
+sudo docker-compose up --build
+echo 'Entering screen...'
+screen -d -m -S engima ./start-server.sh
