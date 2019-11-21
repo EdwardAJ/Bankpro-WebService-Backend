@@ -9,10 +9,11 @@ git stash
 git checkout master
 git pull origin master
 echo 'Deleting screen...'
-screen -X -S engima quit
+screen -X -S wsbank quit
 echo 'Creating .env'
 cp ENV.SAMPLE .env
 echo 'Create executable...'
-sudo docker-compose up --build
+sudo docker-compose up -d --build wsbank-tomcat
+sudo docker-compose stop
 echo 'Entering screen...'
-screen -d -m -S engima ./start-server.sh
+screen -d -m -S wsbank sudo docker-compose up
