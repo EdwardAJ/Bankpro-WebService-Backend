@@ -10,6 +10,8 @@ javalint:
     - 'mvn $MAVEN_CLI_OPTS package'
 
 deploy_to_aws:
+  only:
+    - master
   stage: deploy
   tags:
     - tubes2wbd

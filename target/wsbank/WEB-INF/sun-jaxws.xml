@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoints
+  xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime"
+  version="2.0">
+  <endpoint
+      name="login"
+      implementation="com.webservice.controllers.LoginController"
+      url-pattern="/login"/>
+  <endpoint
+      name="info"
+      implementation="com.webservice.controllers.UserInfoController"
+      url-pattern="/info"/>
+  <endpoint
+      name="generate"
+      implementation="com.webservice.controllers.VirtualAccountController"
+      url-pattern="/generate"/>
+  <endpoint
+      name="transfer"
+      implementation="com.webservice.controllers.TransferController"
+      url-pattern="/transfer"/>
+   <endpoint
+      name="history"
+      implementation="com.webservice.controllers.HistoryController"
+      url-pattern="/history"/>
+    <endpoint
+      name="check"
+      implementation="com.webservice.controllers.CheckController"
+      url-pattern="/check"/>
+</endpoints>
