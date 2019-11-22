@@ -20,8 +20,8 @@ abstract class Model {
 		return results;
 	}
 
-	public static ArrayList<HashMap<String, Object>> getCreditTransaction(String accountNumber, String startTime, String endTime) throws Exception {
-		String query = "SELECT * FROM " + "transactions" + " WHERE " + "dest_virtual_account" + " = " + "'" + accountNumber + "'" + " AND created_at >= '" + startTime + "' AND created_at <= " + "'" + endTime +  "';";
+	public static ArrayList<HashMap<String, Object>> getCreditTransaction(String accountNumber, String startTime, String endTime, long amount) throws Exception {
+		String query = "SELECT * FROM " + "transactions" + " WHERE " + "dest_virtual_account" + " = " + "'" + accountNumber + "'" + " AND created_at >= '" + startTime + "' AND created_at <= " + "'" + endTime + "' AND amount = " + amount + ";";
 		ArrayList<HashMap<String, Object>> results = dbConnection.executeGetQuery(query);
 		return results;
 	}
