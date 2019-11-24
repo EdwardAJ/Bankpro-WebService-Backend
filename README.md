@@ -1,3 +1,6 @@
+[IF 3110 Pengembangan Aplikasi Berbasis Web]
+
+
 WS-Bank menggunakan Java 11 + JAX-WS yang dibundel dalam Apache Maven. Protokol yang digunakan adalah Simple Object Access Protocol (SOAP).
 WS-Bank menggunakan wsbank.war yang akan ditempatkan pada folder {DIREKTORI_TOMCAT}/webapps/
 Isi dari war dalah kelas-kelas java yang sudah dikompilasi dan diinterpretasi,
@@ -61,5 +64,9 @@ Untuk menjalankan web service ini pada Linux, lakukan:
 10. Pada .env terdapat TOMCAT_HOST_PORT. Buka http://localhost:< angka pada TOMCAT_HOST_PORT>/wsbank/login
 11. Akan terlihat semua wsdl yang terdaftar.
 
+
+[IF 3159 Dasar Pembangunan Perangkat Lunak]
+ 1. CI/CD: 13517115, 13517070
+ 2. Eksplorasi dan setup mesin deployment: 13517115, 13517070
 
 
