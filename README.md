@@ -68,5 +68,15 @@ Untuk menjalankan web service ini pada Linux, lakukan:
 [IF 3159 Dasar Pembangunan Perangkat Lunak]
  1. CI/CD: 13517115, 13517070
  2. Eksplorasi dan setup mesin deployment: 13517115, 13517070
+ 
+URL Deployment: 
 
+Root: engima.club:8081
+Services:
+1. engima.club:8081/wsbank/login
+2. engima.club:8081/wsbank/info
+3. engima.club:8081/wsbank/generate
+4. engima.club:8081/wsbank/transfer
+5. engima.club:8081/wsbank/history
+6. engima.club:8081/wsbank/check
 
